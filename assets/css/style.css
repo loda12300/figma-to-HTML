@@ -2,55 +2,77 @@
   box-sizing: border-box;
 }
 
-:root{
-  --font-heading: "Sen", sans-serif;
-  --primary-color: #ffb900
+:root {
+  --primary-color: #ffb900;
 }
 
 html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
 }
-/* =============================common================================ */
+
+/* =================common=================== */
 a {
   text-decoration: none;
 }
 
+.heading-lv2 {
+  font-family: Sen;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.76px;
+  color: #171100;
+}
+
 .btn {
+  background-color: #171100;
   display: inline-block;
   min-width: 118px;
   padding: 0 16px;
-  line-height: 50px;
+  text-align: center;
+  border-radius: 999px;
   font-size: 16px;
   font-weight: 600;
-  text-align: center;
+  line-height: 50px;
   color: #fff;
-  background: #171100;
-  border-radius: 999px;
 }
 
 .btn:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 .main-content {
   width: 1170px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: calc(100% - 48px);
 }
 
-/* ===================================header================================ */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 1);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp.line-2 {
+  --line-clamp: 2;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+/* ======================header============================ */
 .header {
-  background: #fffcf4;
+  background-color: #fffcf4;
 }
 
 .header.fixed {
   position: sticky;
   top: -28px;
+  z-index: 1;
 }
 
 .header .body-header {
@@ -59,19 +81,19 @@ a {
   padding: 36px 0 8px;
 }
 
-.nav {
-  margin-left: auto;
-}
-
 .nav ul {
   display: flex;
 }
 
+.body-header .nav {
+  margin-left: auto;
+}
+
 .nav a {
-  position: relative;
   font-size: 16px;
   color: #5f5b53;
   padding: 8px 21px;
+  position: relative;
 }
 
 .nav li.active a,
@@ -80,38 +102,36 @@ a {
   color: #171100;
 }
 
-.nav li.active a::after {
-  position: absolute;
-  left: 21px;
-  bottom: 6px;
+.nav li.active a::before {
   content: "";
-  display: block;
   width: 12px;
   height: 2px;
   border-radius: 1px;
+  display: block;
   background-color: #171100;
+  position: absolute;
+  bottom: 8px;
+  left: 21px;
 }
 
 .header .btn-sign-up {
   min-width: 144px;
-}
-
-.header .action {
   margin-left: 49px;
 }
 
-/* ==================================hero============================= */
+/* ========================================hero======================================= */
 .hero {
-  padding: 56px 0 65px;
   background-color: #fffcf4;
+  padding: 56px 0 65px;
 }
 
 .hero .body-hero {
   display: flex;
 }
 
-/* ===================== hero left ===================== */
-.hero .media-block {
+/* ==========================hero left============== */
+
+.body-hero .media-block {
   width: 48%;
   position: relative;
 }
@@ -120,34 +140,48 @@ a {
   width: 470px;
   height: 685px;
   object-fit: cover;
-  border-radius: 20px;
 }
 
-.hero-summary .item {
-  display: flex;
-  align-items: center;
-}
-
-.hero .hero-summary {
-  padding: 24px;
+.media-block .hero-summary {
   position: absolute;
   bottom: 48px;
   right: 0;
   width: 270px;
-  height: 244px;
-  background-color: #fff;
   border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0px 16px 32px 0px #0000000d;
+  padding: 24px;
 }
 
-.hero-summary .icon {
+.media-block .hero-summary .item {
+  display: flex;
+  align-items: center;
+}
+
+.media-block .icon {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  background-color: #fff9e8;
+  border-radius: 999px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff9e8;
-  margin-bottom: 22px;
+}
+
+.media-block .label {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #5f5b53;
+}
+
+.media-block .title {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  color: #171100;
 }
 
 .hero-summary .icon2 {
@@ -158,110 +192,290 @@ a {
   background-color: #ebeaff;
 }
 
+.hero-summary .item + .item {
+  margin-top: 22px;
+}
+
 .hero-summary .info {
   margin-left: 16px;
 }
 
-.hero-summary .label {
-  font-size: 14px;
-  line-height: 26px;
-  color: ;#5F5B53
-}
+/* ================hero right================== */
 
-.hero-summary .title {
-  color: #171100;
-  font-family: Poppins;
-font-size: 18px;
-font-weight: 600;
-line-height: 30px;
-
-}
-
-
-/* ================== hero right ================= */
-.hero .content-block {
+.body-hero .content-block {
   width: 52%;
-  padding-left: 130px;
   padding-top: 64px;
+  padding-left: 120px;
 }
 
-.hero .heading {
-  font-family: var(--font-heading);
-font-size: 58px;
-font-weight: 700;
-line-height: 68px;
-letter-spacing: -0.02em;
-text-align: left;
-color: #171100;
+.hero .heading-lv2 {
+  font-family: Sen;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 68px;
+  color: #171100;
 }
 
-.hero .description {
-font-size: 18px;
-font-weight: 400;
-line-height: 30px;
-text-align: left;
-margin-top: 22px;
-color: #5F5B53;
+.content-block .desc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #5f5b53;
+  margin-top: 22px;
 }
 
-.hero .cta-group {
-  margin-top: 38px;
+.content-block .ctn-group {
   display: flex;
   align-items: center;
+  margin-top: 30px;
 }
 
-.hero .hero-cta {
+.content-block .ctn-group .btn-hero {
   min-width: 180px;
   line-height: 64px;
-  background-color: var(--primary-color)
+  background-color: var(--primary-color);
 }
 
-.hero .watch-video {
-  margin-left: 28px;
-  border: none;
-  background: transparent;
+.content-block .watch-video {
   display: flex;
   align-items: center;
+  border: none;
+  background: transparent;
+  margin-left: 28px;
   cursor: pointer;
 }
 
-.hero .watch-video .icon {
+.content-block .watch-video .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color:#FFFFFF;
-  border-radius: 40px;
+  background-color: #ffffff;
   box-shadow: 0px 8px 16px 0px #00000012;
+  border-radius: 40px;
 }
 
-.hero .watch-video span {
-font-size: 18px;
-font-weight: 600;
-line-height: 30px;
-color: #171100;
-margin-left: 14px;
+.content-block .watch-video span {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-left: 14px;
 }
 
-.hero .des-recent {
+.content-block .desc-recent {
   margin-top: 48px;
 }
 
-.hero .stats {
+.content-block .stats {
   margin-top: 8px;
 }
 
-.hero .stats strong {
+.content-block .stats strong {
   font-family: Sen;
-font-size: 44px;
-font-weight: 700;
-line-height: 54px;
-text-align: left;
-margin-right: 15px;
-color: #171100;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 54px;
+  color: #171100;
+  margin-right: 12px;
 }
 
-.hero .stats strong:nth-child(2) {
+.content-block .stats strong:nth-child(2) {
   margin-left: 28px;
+}
+
+/* ========================popular==================== */
+.popular {
+  margin-top: 135px;
+  padding: 65px 0;
+}
+
+.popular .popular-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popular-top .desc {
+  margin-top: 16px;
+  width: 458px;
+  color: #5f5b53;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.popular .controls {
+  display: flex;
+  gap: 18px;
+}
+
+.popular .controls .control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--primary-color);
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--primary-color);
+}
+
+.popular .controls .control-btn:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =========================courses list========================== */
+.popular .course-list {
+  margin-top: 55px;
+  display: flex;
+  gap: 30px;
+}
+
+.popular .course-item {
+  border: 1px solid #e2dfda;
+  background: #fff;
+  flex: 1;
+}
+
+.popular .course-item:hover {
+  border: 1px solid transparent;
+  box-shadow: 0px 18px 36px 0px #0000000d;
+  background: #fff;
+}
+
+.popular .course-item .info {
+  padding: 16px 22px 22px;
+}
+
+.popular .course-item .thumb {
+  width: 100%;
+  height: 278px;
+  object-fit: cover;
+  border-radius: 12px 12px 0px 0px;
+}
+
+.popular .course-item .foot,
+.popular .course-item .rating,
+.popular .course-item .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popular .course-item .title a {
+  color: #171100;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.popular .course-item .desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #5f5b53;
+  margin-top: 10px;
+}
+
+.popular .rating .value {
+  margin-left: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #fea31b;
+}
+
+.popular .course-item .foot {
+  margin-top: 12px;
+}
+
+.popular .course-item .price {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.popular .course-item .btn-book {
+  border: none;
+}
+
+.popular .course-item .btn-book:hover {
+  background: var(--primary-color);
+}
+
+/* ===================================feedback========================================= */
+.feedback {
+  margin-top: 135px;
+  background: #2e2100;
+  padding: 96px 0;
+}
+
+.feedback .feedback-list {
+  display: flex;
+  overflow: hidden;
+}
+
+.feedback .feedback-item {
+  display: flex;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.feedback .feedback-item .avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.feedback-item .info .member-name {
+  font-family: Sen;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #f7f7f7;
+  margin-top: 18px;
+}
+
+.feedback-item .info .desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #bfbcb2;
+  margin-top: 4px;
+}
+
+.feedback-item .dots {
+  display: flex;
+  margin-top: 28px;
+  gap: 6px;
+}
+
+.feedback-item .dots .dot {
+  width: 6px;
+  height: 6px;
+  background: #634700;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.feedback-item .dots .dot.active {
+  background: var(--primary-color);
+  cursor: default;
+}
+
+.feedback-item .content {
+  width: 66%;
+  margin-left: auto;
+}
+
+.feedback-item blockquote {
+  font-size: 26px;
+  font-style: italic;
+  line-height: 40px;
+  color: #fff;
 }
